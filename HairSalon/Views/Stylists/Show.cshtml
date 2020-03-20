@@ -1,9 +1,43 @@
 @{
     Layout = "_Layout";
 }
-<h2 class="text-center">Stylist Show</h2>
-@ViewBag.Stylist.StylistName
+@using HairSalon.Models;
+@model HairSalon.Models.Stylist;
 
-@Html.ActionLink("Edit Details", "Edit", new {id = ViewBag.Stylist.StylistId}, new {@class="btn btn-info"})
+<div class="row">
+  <div class="col-md-6 offset-md-3">
 
-@Html.ActionLink("Delete Stylist", "Delete", new { id = ViewBag.Stylist.StylistId}, new {@class="btn btn-danger"})
+    <div class="show-box">
+      <div class="show-header">
+        Stylist : @ViewBag.Stylist.StylistName
+      </div>
+      <div class="show-body">
+        <p>Specialty : @ViewBag.Stylist.Specialty</p>
+        <p>Rate : $@ViewBag.Stylist.Rate Per Hour</p>
+      </div>
+      <div class="show-footer">
+        @Html.ActionLink("Edit Details", "Edit", new {id = ViewBag.Stylist.StylistId}, new {@class="btn btn-info"})
+        @Html.ActionLink("Delete Stylist", "Delete", new { id = ViewBag.Stylist.StylistId}, new {@class="btn btn-danger"})
+      </div>
+    </div>
+
+  </div>
+</div>
+
+  <h3 class="text-center">Client Count : @ViewBag.ClientList.Count</h3>
+<div class="row">
+  <div class="col-md-8 offset-md-2 client-listout">
+      @foreach (Client client in @ViewBag.ClientList)
+      {
+        <div class="client-box--body">
+          <div class="client-box--header">
+            @client.Name
+          </div>
+          <div class="client-box--center">
+            <a href="/clients/show/@client.ClientId"><button class="btn btn-info">Details</button></a>
+          </div>
+        </div>
+      }
+
+  </div>
+</div>

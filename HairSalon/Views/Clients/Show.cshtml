@@ -1,9 +1,24 @@
 @{
     Layout = "_Layout";
 }
-<h2 class="text-center">Client Show</h2>
-@ViewBag.Client.Name
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <div class="client-box--show">
+      <div class="client-box--header">
+        Client : @ViewBag.Client.Name
+      </div>
+      <div class="client-box--center">
+       <p>Stylist : @ViewBag.Stylist.StylistName</p>
+       <p>Notes : @ViewBag.Client.Note</p>
 
-@Html.ActionLink("Edit Details", "Edit", new {id = ViewBag.Client.ClientId}, new {@class="btn btn-info"})
+      </div>
 
-@Html.ActionLink("Delete Stylist", "Delete", new { id = ViewBag.Client.ClientId}, new {@class="btn btn-danger"})
+
+      <div class="client-box--footer">
+        @Html.ActionLink("Edit Details", "Edit", new {id = ViewBag.Client.ClientId}, new {@class="btn btn-info"})
+        @Html.ActionLink("Delete Client", "Delete", new { id = ViewBag.Client.ClientId}, new {@class="btn btn-danger"})
+      </div>
+    </div>
+  </div>
+</div>
+

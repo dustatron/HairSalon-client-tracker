@@ -1,11 +1,11 @@
 @{
     Layout = "_Layout";
 }
-<h2 class="text-center">Stylist Index</h2>
 @using HairSalon.Models;
 
 <div class="row">
-    <div class="col-md-8 offset-md-2">
+    <div class="col-md-6 offset-md-3">
+        <h2 class="text-center stylist-header">Stylist Index</h2>  
         @if ( ViewBag.StylistList.Count == 0)
         {
             <h3>Please Enter A Stylist</h3>
@@ -15,16 +15,16 @@
         } 
         else
         {
-            <ul>
+            <div class="list-group" id="list-tab" role="tablist">
             @foreach (Stylist stylist in ViewBag.StylistList)
             {
-                <li>
-                    @Html.ActionLink($"{stylist.StylistName}", "Show", new {id = stylist.StylistId})
-                </li>
+                
+                @Html.ActionLink($"{stylist.StylistName}", "Show", new {id = stylist.StylistId}, new {@class="list-group-item list-group-item-action"})
+                
             }
-            </ul>
+            </div>
 
-            @Html.ActionLink("Add A Stylist", "Create", null, htmlAttributes: new {@class="btn btn-primary btn-lg"})
+            @Html.ActionLink("Add A Stylist", "Create", null, htmlAttributes: new {@class="btn btn-primary btn-block btn-lg"})
         }
     </div>
 </div>

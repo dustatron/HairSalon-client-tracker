@@ -1,0 +1,29 @@
+@{
+    Layout = "_Layout";
+}
+
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <h2 class="stylist-header">Search Results</h2>
+    @if (ViewBag.Results.Count == 0 && ViewBag.StylistResults.Count == 0)
+    {
+      <h2 class="text-center"> Found Not Matches </h2>
+    }
+    else
+    {
+      <div class="list-group" id="list-tab" role="tablist">
+        @foreach (var client in ViewBag.Results)
+        {
+            <h3 class="text-center">Client Results</h3>
+            @Html.ActionLink($"{client.Name}", "Show", "Clients", new {id = client.ClientId}, new {@class="list-group-item list-group-item-action"})
+        }
+        @foreach (var stylist in ViewBag.StylistResults)
+        {
+            <h3 class="text-center">Stylists Results</h3>
+            @Html.ActionLink($"{stylist.StylistName}", "Show", "Stylists", new {id = stylist.StylistId}, new {@class="list-group-item list-group-item-action"})
+        }
+      </div>
+    }
+
+  </div>
+</div>
