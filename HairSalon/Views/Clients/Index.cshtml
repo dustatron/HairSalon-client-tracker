@@ -17,8 +17,12 @@
         {
             <div class="list-group" id="list-tab" role="tablist">
             @foreach (Client client in ViewBag.ClientList)
-            {
-                @Html.ActionLink($"{client.Name}", "Show", new {id = client.ClientId}, new {@class="list-group-item list-group-item-action"})
+            {   
+                <div class="list-group-item list-group-item-action">
+                    <img src="~/img/icons8-male-user-90.png" alt="profile place holder" class="profile-img">
+
+                    @Html.ActionLink($"{client.Name}", "Show", new {id = client.ClientId})
+                </div>
             }
             </div>
 

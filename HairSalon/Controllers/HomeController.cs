@@ -22,7 +22,7 @@ namespace HairSalon.Controllers
     public ActionResult Search(string search)
     {
       ViewBag.Results = _db.Clients.Where(client => client.Name == search).ToList();
-      ViewBag.StylistResults = _db.Stylists.Where(stylist => stylist.StylistName == search).ToList();
+      ViewBag.StylistResults = _db.Stylists.Where(stylist => stylist.StylistName == search || stylist.Specialty == search).ToList();
       return View();
     }
 

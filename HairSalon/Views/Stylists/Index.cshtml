@@ -4,27 +4,30 @@
 @using HairSalon.Models;
 
 <div class="row">
-    <div class="col-md-6 offset-md-3">
-        <h2 class="text-center stylist-header">Stylist Index</h2>  
-        @if ( ViewBag.StylistList.Count == 0)
-        {
-            <h3>Please Enter A Stylist</h3>
-            <a href="/stylists/create">
-                <button class="btn btn-primary">Add A Stylist</button>
-            </a>
-        } 
-        else
-        {
-            <div class="list-group" id="list-tab" role="tablist">
-            @foreach (Stylist stylist in ViewBag.StylistList)
-            {
-                
-                @Html.ActionLink($"{stylist.StylistName}", "Show", new {id = stylist.StylistId}, new {@class="list-group-item list-group-item-action"})
-                
-            }
-            </div>
+  <div class="col-md-6 offset-md-3">
+    <h2 class="text-center stylist-header">Stylist Index</h2>  
+    @if ( ViewBag.StylistList.Count == 0)
+    {
+      <h3>Please Enter A Stylist</h3>
+      <a href="/stylists/create">
+        <button class="btn btn-primary">Add A Stylist</button>
+      </a>
+    } 
+    else
+    {
+      <div class="list-group" id="list-tab" role="tablist">
+      @foreach (Stylist stylist in ViewBag.StylistList)
+      {   
+        <div class="list-group-item list-group-item-action">
+          <img src="~/img/icons8-barber-scissors-100.png" alt="stylist profile image placeholder" class="stylist-img">
+          @Html.ActionLink($"{stylist.StylistName}", "Show", new {id = stylist.StylistId})
+        </div>
+          
+          
+      }
+      </div>
 
-            @Html.ActionLink("Add A Stylist", "Create", null, htmlAttributes: new {@class="btn btn-primary btn-block btn-lg"})
-        }
-    </div>
+      @Html.ActionLink("Add A Stylist", "Create", null, htmlAttributes: new {@class="btn btn-primary btn-block btn-lg"})
+    }
+  </div>
 </div>
