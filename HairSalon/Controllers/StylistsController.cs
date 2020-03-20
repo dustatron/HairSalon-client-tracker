@@ -17,6 +17,8 @@ namespace HairSalon.Controllers
 
     public ActionResult Index()
     {
+      List<Stylist> stylistList = _db.Stylists.ToList();
+      ViewBag.StylistList = stylistList;
       return View();
     }
 
@@ -43,7 +45,7 @@ namespace HairSalon.Controllers
     {
       Stylist thisStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id);
       ViewBag.Stylist = thisStylist;
-      return View();
+      return View(thisStylist);
     }
 
     [HttpPost]

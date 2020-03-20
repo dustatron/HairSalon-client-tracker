@@ -1,4 +1,30 @@
 @{
     Layout = "_Layout";
 }
-<h2 class="text-center">Stylist Edit</h2>
+@model HairSalon.Models.Stylist;
+
+<div class="col-md-6 offset-md-3">
+  <div class="form-box">
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.StylistId)
+      <div class="form-header">Edit details for @ViewBag.Stylist.StylistName </div>
+      <div class="form-body">
+        <div class="form-group">
+          @Html.LabelFor(model => model.StylistName)
+          @Html.EditorFor(model => model.StylistName, new { htmlAttributes = new { @class="form-control" } })
+         
+        </div>
+        <div class="form-group">
+          @Html.LabelFor(model => model.Specialty)
+          @Html.EditorFor(model => model.Specialty, new { htmlAttributes = new { @class="form-control" }})
+        </div>
+        <div class="form-group">
+          @Html.LabelFor(model => model.Rate)
+          @Html.EditorFor(model => model.Rate,new { htmlAttributes = new { @class="form-control", @type = "number" }})
+        </div>
+        <input type="submit" value="Edit" class="btn btn-primary btn-block">
+      </div>
+    }
+  </div>
+</div>

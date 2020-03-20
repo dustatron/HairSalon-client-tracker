@@ -2,3 +2,29 @@
     Layout = "_Layout";
 }
 <h2 class="text-center">Stylist Index</h2>
+@using HairSalon.Models;
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        @if ( ViewBag.StylistList.Count == 0)
+        {
+            <h3>Please Enter A Stylist</h3>
+            <a href="/stylists/create">
+                <button class="btn btn-primary">Add A Stylist</button>
+            </a>
+        } 
+        else
+        {
+            <ul>
+            @foreach (Stylist stylist in ViewBag.StylistList)
+            {
+                <li>
+                    @Html.ActionLink($"{stylist.StylistName}", "Show", new {id = stylist.StylistId})
+                </li>
+            }
+            </ul>
+
+            @Html.ActionLink("Add A Stylist", "Create", null, htmlAttributes: new {@class="btn btn-primary btn-lg"})
+        }
+    </div>
+</div>

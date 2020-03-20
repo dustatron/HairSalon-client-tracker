@@ -2,3 +2,6 @@
     Layout = "_Layout";
 }
 <h2 class="text-center">Stylist Show</h2>
+@ViewBag.Stylist.StylistName
+
+@Html.ActionLink("Edit Details", "Edit", new {id = ViewBag.Stylist.StylistId}, new {@class="btn btn-info"})
