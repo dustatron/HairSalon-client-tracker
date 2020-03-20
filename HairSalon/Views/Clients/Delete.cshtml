@@ -1,4 +1,19 @@
 @{
     Layout = "_Layout";
 }
-<h2 class="text-center">Client Delete</h2>
+
+<div class="col-md-6 offset-md-3">
+  <h2 class="text-center">Delete Client</h2>
+  @using (Html.BeginForm())
+  {
+    <div class="form-box">
+      <div class="form-header">
+        Delete Client : @ViewBag.Client.Name
+      </div>
+      <div class="form-body">
+        <p>Are you sure you want Delete</p>
+        <button type="submit" class="btn btn-danger btn-block">Delete</button>
+      </div>
+    </div>
+  }
+</div>

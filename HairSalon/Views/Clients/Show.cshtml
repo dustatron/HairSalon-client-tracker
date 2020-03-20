@@ -2,3 +2,8 @@
     Layout = "_Layout";
 }
 <h2 class="text-center">Client Show</h2>
+@ViewBag.Client.Name
+
+@Html.ActionLink("Edit Details", "Edit", new {id = ViewBag.Client.ClientId}, new {@class="btn btn-info"})
+
+@Html.ActionLink("Delete Stylist", "Delete", new { id = ViewBag.Client.ClientId}, new {@class="btn btn-danger"})

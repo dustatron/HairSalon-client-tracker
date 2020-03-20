@@ -1,7 +1,9 @@
+
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using HairSalon.Models;
 
 namespace HairSalon.Controllers
@@ -17,11 +19,14 @@ namespace HairSalon.Controllers
 
     public ActionResult Index()
     {
+      List<Client> clientList = _db.Clients.ToList();
+      ViewBag.ClientList = clientList;
       return View();
     }
 
     public ActionResult Create()
     {
+      ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "StylistName");
       return View();
     }
 
@@ -36,14 +41,13 @@ namespace HairSalon.Controllers
     public ActionResult Show(int id)
     {
       Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
-      ViewBag.client = thisClient;
+      ViewBag.Client = thisClient;
       return View();
     }
     public ActionResult Edit(int id)
     {
       Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
-      ViewBag.client = thisClient;
-      return View();
+      return View(thisClient);
     }
 
     [HttpPost]
@@ -57,10 +61,11 @@ namespace HairSalon.Controllers
     public ActionResult Delete(int id)
     {
       Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
-      ViewBag.client = thisClient;
+      ViewBag.Client = thisClient;
       return View();
     }
 
+    [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfimed(int id)
     {
       Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
