@@ -29,10 +29,8 @@ This projects allows a Salon owner to keep track of their stylists and which cli
 | From the Home Page, when User Clicks "See all Clients" they are directed to an index of all Clients with a description | Click: "See All Clients" | "client Index:"| 
 | From the client Index Page, when the user clicks "Add New client", they are directed to an Add new client Create Page Form | Click: "Add New client" | Add A New client Form |
 | After the user Adds a New client, they are directed back to the client Index, where the new client can be seen| Submit: "Add client" | client Index |
-| When the user enters a term into the search bar, they are returned with a list of Clients whose names or keywords match the search | Search: "Pizza" | Your Search Results: |
+| When the user enters a term into the search bar, they are returned with a list of Clients whose names or keywords match the search | Search: "Sue" | Your Search Results: |
 
-| 
-||||
 
 ## Setup/Installation Requirements
 _Make sure you have these tools installed on your computer:_
