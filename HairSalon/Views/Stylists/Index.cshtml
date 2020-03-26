@@ -8,10 +8,12 @@
     <h2 class="text-center stylist-header">Stylist Index</h2>  
     @if ( ViewBag.StylistList.Count == 0)
     {
-      <h3>Please Enter A Stylist</h3>
-      <a href="/stylists/create">
-        <button class="btn btn-primary">Add A Stylist</button>
-      </a>
+      <h3 class="text-center">Please Enter A Stylist</h3>
+      <div class="text-center">
+        <a href="/stylists/create">
+          <button class="btn btn-primary">Add A Stylist</button>
+        </a>
+      </div>
     } 
     else
     {
