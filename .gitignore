@@ -1,6 +1,6 @@
 ### project folders ###
-*/obj/*
-*/bin/*
+bin/
+obj/
 Notes.txt
 
 ### OSX ###
